@@ -1,0 +1,11 @@
+{
+  "Pepper__bell___Bacterial_spot": 0,
+  "Pepper__bell___healthy": 1,
+  "Potato___Early_blight": 2,
+  "Potato___Late_blight": 3,
+  "Potato___healthy": 4,
+  "Apple___Apple_scab": 5,
+  "Apple___Black_rot": 6,
+  "Apple___Cedar_apple_rust": 7,
+  "Apple___healthy": 8
+}

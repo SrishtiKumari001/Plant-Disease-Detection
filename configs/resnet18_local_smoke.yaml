@@ -1,0 +1,45 @@
+experiment:
+  name: resnet18_local_smoke
+  seed: 42
+
+data:
+  dataset: plantvillage
+  split_csv: data/splits/split.csv
+  img_size: 224
+  num_workers: 0
+  sample_fraction: 0.001
+
+model:
+  name: resnet18
+  num_classes: 5
+  pretrained: false
+  dropout: 0.2
+
+training:
+  batch_size: 4
+  epochs_head: 1
+  epochs_finetune: 1
+  use_weighted_sampler: false
+  optimizer: adamw
+  lr_head: 0.001
+  lr_finetune: 0.0001
+  weight_decay: 0.0001
+  label_smoothing: 0.0
+  early_stopping_metric: macro_f1
+  early_stopping_patience: 2
+
+scheduler:
+  type: cosine
+  warmup_epochs: 0
+
+freeze:
+  strategy: head_then_last_n
+  unfreeze_last_n_children: 2
+
+logging:
+  output_dir: reports
+  save_best: true
+  log_every: 1
+
+device:
+  prefer_mps: true

@@ -1,0 +1,77 @@
+{
+  "config": {
+    "experiment": {
+      "name": "efficientnet_b0_baseline",
+      "seed": 42
+    },
+    "data": {
+      "dataset": "plantvillage",
+      "split_csv": "data/splits/split.csv",
+      "img_size": 224,
+      "num_workers": 2,
+      "sample_fraction": 1.0
+    },
+    "augmentation": {
+      "crop_scale": [
+        0.75,
+        1.0
+      ],
+      "hflip_p": 0.5,
+      "rotation_deg": 30,
+      "color_jitter": [
+        0.5,
+        0.5,
+        0.4,
+        0.08
+      ],
+      "perspective_p": 0.35,
+      "perspective_distortion": 0.3,
+      "random_erasing_p": 0.2
+    },
+    "model": {
+      "name": "efficientnet_b0",
+      "num_classes": 5,
+      "pretrained": true,
+      "dropout": 0.2
+    },
+    "training": {
+      "batch_size": 16,
+      "epochs_head": 4,
+      "epochs_finetune": 12,
+      "optimizer": "adamw",
+      "lr_head": 0.001,
+      "lr_finetune": 0.0001,
+      "weight_decay": 0.0001,
+      "label_smoothing": 0.0,
+      "early_stopping_metric": "macro_f1",
+      "early_stopping_patience": 12
+    },
+    "scheduler": {
+      "type": "cosine",
+      "warmup_epochs": 0
+    },
+    "freeze": {
+      "strategy": "head_then_last_n",
+      "unfreeze_last_n_children": 2
+    },
+    "logging": {
+      "output_dir": "reports",
+      "save_best": true,
+      "log_every": 1
+    },
+    "device": {
+      "prefer_mps": true
+    }
+  },
+  "checkpoint": "C:\\Users\\deepa\\OneDrive\\Desktop\\fyrp2\\plantvillage-disease-classifier-main\\reports\\checkpoints\\efficientnet_b0_baseline_best.pt",
+  "split": "test",
+  "test_loss": 0.2298040695740262,
+  "summary": {
+    "accuracy": 0.9393638170974155,
+    "macro_precision": 0.9143025272917957,
+    "macro_recall": 0.9508738883130808,
+    "macro_f1": 0.924260786858803,
+    "weighted_f1": 0.9405987474416841
+  },
+  "topk_accuracy": 0.9970178926441352
+}

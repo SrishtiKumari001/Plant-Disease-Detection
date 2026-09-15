@@ -1,0 +1,25 @@
+{
+  "experiment": "efficientnet_b0_baseline",
+  "device": "cpu",
+  "num_classes": 9,
+  "best_metric": "macro_f1",
+  "best_score": 0.9385782629291712,
+  "best_row": {
+    "phase": "finetune",
+    "epoch": 9,
+    "train_loss": 0.24683203878888896,
+    "val_loss": 0.19440862548280188,
+    "val_summary": {
+      "accuracy": 0.9463220675944334,
+      "macro_precision": 0.9283572765204452,
+      "macro_recall": 0.953590570515996,
+      "macro_f1": 0.9385782629291712,
+      "weighted_f1": 0.9461807660444007
+    },
+    "val_topk": 0.9970178926441352,
+    "lr": 1.4644660940672632e-05,
+    "seconds": 136.5642237663269
+  },
+  "best_checkpoint": "C:\\Users\\deepa\\OneDrive\\Desktop\\fyrp2\\plantvillage-disease-classifier-main\\reports\\checkpoints\\efficientnet_b0_baseline_best.pt",
+  "last_checkpoint": "C:\\Users\\deepa\\OneDrive\\Desktop\\fyrp2\\plantvillage-disease-classifier-main\\reports\\checkpoints\\efficientnet_b0_baseline_last.pt"
+}
